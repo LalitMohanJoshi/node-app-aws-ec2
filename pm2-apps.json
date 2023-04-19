@@ -1,0 +1,12 @@
+{
+    "apps": [
+      {
+        "name": "MyServer",
+        "script": "bin/www",
+        "exec_mode": "cluster",
+        "instances": "Max",
+        "wait_ready": true,
+        "listen_timeout": 3000
+      }
+    ]
+}

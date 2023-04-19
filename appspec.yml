@@ -1,0 +1,28 @@
+#https://docs.aws.amazon.com/codedeploy/latest/userguide/reference-appspec-file-example.html
+
+version: 0.0
+os: linux
+files:
+  - source: /
+    destination: /home/ubuntu/Sites/ngine
+hooks:
+  ApplicationStop:
+    - location: shellScripts/stop_server.sh
+      timeout: 300
+      runas: root
+  BeforeInstall:
+    - location: shellScripts/before_install.sh
+      timeout: 600
+      runas: root
+  AfterInstall:
+    - location: shellScripts/install_dependencies.sh
+      timeout: 300
+      runas: root
+  ApplicationStart:
+    - location: shellScripts/start_server.sh
+      timeout: 300
+      runas: root
+  BeforeAllowTraffic:
+    - location: shellScripts/register_targets
+      timeout: 100
+      runas: root
