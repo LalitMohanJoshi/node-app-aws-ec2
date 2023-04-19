@@ -26,6 +26,8 @@ cd /etc/nginx/default.d
  
 #setup curl 
 sudo yum install curl -y  
+curl https://raw.githubusercontent.com/LalitMohanJoshi/node-app-aws-ec2/master/mySite.conf -o myServer.conf
+
 sudo nginx -t
 
 #sudo vim nginx.conf 
